@@ -1,35 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Dashboard from './components/admin-dashboard'
+import CourseDetails from './components/cause-details'
+import ContactUs from './components/contact-us'
+import MainDashboard from './components/dashboard'
+import DonationPage from './components/donation'
+import ExploreCauses from './components/explore-causes'
+import SignIn from './components/sign-in'
+import UserProfile from './components/user-profile'
+import SignUp from './components/sign-up'
+import WalletConnection from './components/wallet-connection'
+import Home from './components/home'
+import Layout from './components/Layout';
+import About from './components/about-us';
+import AnimatedOutlet from './components/animatedOutlet';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <AnimatedOutlet />
+
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<ContactUs />} />
+            <Route path="donate" element={<DonationPage />} />
+            <Route path="contact-us" element={<ContactUs />} />
+            <Route path="sign-In" element={<SignIn />} />
+            <Route path="sign-Up" element={<SignUp />} />
+          </Route>
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
 export default App
