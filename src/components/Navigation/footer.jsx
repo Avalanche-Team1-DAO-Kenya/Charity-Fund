@@ -2,6 +2,7 @@
 
 import { Button, Input } from "@relume_io/relume-ui";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const useForm = () => {
   const [email, setEmail] = useState("");
@@ -58,9 +59,9 @@ export function Footer() {
             <h2 className="mb-2 font-semibold">Quick Links</h2>
             <ul>
               <li className="py-2 text-sm">
-                <a href="#" className="flex items-center gap-3">
+                <Link to="/about" className="flex items-center gap-3">
                   About Us
-                </a>
+                </Link>
               </li>
               <li className="py-2 text-sm">
                 <a href="#" className="flex items-center gap-3">

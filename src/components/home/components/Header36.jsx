@@ -2,6 +2,7 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import donate from "../../../assets/DonateHome.jpg";
 
 export function Header36() {
   return (
@@ -28,7 +29,7 @@ export function Header36() {
       </div>
       <div>
         <img
-          src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+          src={donate}
           alt="Relume placeholder image"
           className="w-full object-cover lg:h-screen lg:max-h-[60rem]"
         />
