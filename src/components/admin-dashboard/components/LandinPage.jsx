@@ -32,10 +32,11 @@ export default function AdminHome(){
            </sector>
 
            <div className="grid grid-cols-1  md:grid-cols-2 place-items-center"> 
+           <img src={ManUsingBlockchain}  className=" rounded-full w-72 mx-auto md:mx-0"/>
                <h4 className="text-center md:text-left text-lf font-semibold ">
                 Ready to elevate businesses to make a change in the world by
                 feeding the needy people, charity funding is here tom help you
-            <img src={ManUsingBlockchain}  className=" rounded-full  w-60 mx-auto md:mx-0"/>
+           
                </h4> 
            </div>
 
