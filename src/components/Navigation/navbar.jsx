@@ -125,6 +125,7 @@ export function Navbar() {
           >
             Donate Now
           </Link>
+          <Link to="/adminDash">adminDash</Link>
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}

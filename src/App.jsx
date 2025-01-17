@@ -1,8 +1,6 @@
 import { useState } from 'react'
-
-
+import Dashboard from './components/admin-dashboard';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Dashboard from './components/admin-dashboard'
 import CourseDetails from './components/cause-details'
 import ContactUs from './components/contact-us'
 import MainDashboard from './components/dashboard'
@@ -16,7 +14,7 @@ import Home from './components/home'
 import Layout from './components/Layout';
 import About from './components/about-us';
 import AnimatedOutlet from './components/animatedOutlet';
-
+import AdminMainDashboard from './components/admin-dashboard/components/AdminDashboard';
 
 function App() {
 
@@ -35,6 +33,10 @@ function App() {
             <Route path="contact-us" element={<ContactUs />} />
             <Route path="sign-In" element={<SignIn />} />
             <Route path="sign-Up" element={<SignUp />} />
+            <Route exact path="adminDash"  element={<AdminMainDashboard/>}>
+              <Route exact path="causes" element={<CourseDetails/>}/>
+              <Route excat path="" element={<Dashboard/>} />
+            </Route>
           </Route>
         </Routes>
       </Router>
