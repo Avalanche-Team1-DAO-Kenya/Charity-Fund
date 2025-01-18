@@ -1,12 +1,13 @@
 "use client";
-
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { AuthContext } from './../AuthContext/AuthContext';
+import { jwtDecode } from "jwt-decode";
 
-const useRelume = () => {
+const useRelume = () => {  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
@@ -40,6 +41,15 @@ const useRelume = () => {
 
 export function Navbar() {
   const useActive = useRelume();
+  const {token}=useContext(AuthContext)
+  const [userRole,setUserRole]=useState("")
+  const decodedToken=jwtDecode(token)
+  const role=decodedToken?.sub?.role
+  setUserRole(role)
+  const allRoles={
+    "admin":"AdminDash",
+    "user":"userAdmin"
+  }
   return (
     <section
       id="relume"

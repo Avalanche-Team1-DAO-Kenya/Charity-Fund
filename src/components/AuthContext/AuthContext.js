@@ -1,6 +1,6 @@
-import React,{createContext, useState} from "react";
+import React,{useState,createContext} from "react";
 
-const AuthContext=React.createContext()
+export const AuthContext=createContext()
 export default function AuthProvider({children}){
     const [token,setToken]=useState(localStorage.getItem("newChatiryFund"))
      const Login=(token)=>{
