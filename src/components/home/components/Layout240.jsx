@@ -3,6 +3,11 @@
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
+import childrenSmilling from "../../../assets/Smilling Chlidren.jpeg";
+import childrenStudying from "../../../assets/children studying.jpeg";
+import building from "../../../assets/buidings.jpeg";
+
+
 
 export function Layout240() {
   return (
@@ -18,7 +23,7 @@ export function Layout240() {
           <div className="flex w-full flex-col items-center text-center">
             <div className="rb-6 mb-6 md:mb-8">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src={childrenSmilling}
                 alt="Relume placeholder image"
               />
             </div>
@@ -38,7 +43,7 @@ export function Layout240() {
           <div className="flex w-full flex-col items-center text-center">
             <div className="rb-6 mb-6 md:mb-8">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src={childrenStudying}
                 alt="Relume placeholder image"
               />
             </div>
@@ -58,7 +63,7 @@ export function Layout240() {
           <div className="flex w-full flex-col items-center text-center">
             <div className="rb-6 mb-6 md:mb-8">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src={building}
                 alt="Relume placeholder image"
               />
             </div>

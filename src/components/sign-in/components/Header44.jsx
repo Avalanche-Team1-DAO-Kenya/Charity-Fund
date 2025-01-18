@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+//import { Button } from "@relume_io/relume-ui";
 import React from "react";
 
 export function Header44() {
@@ -16,12 +16,6 @@ export function Header44() {
             Access your CharityFund account to manage donations and proposals
             with ease and transparency.
           </p>
-          <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Sign In">Sign In</Button>
-            <Button title="Register" variant="secondary">
-              Register
-            </Button>
-          </div>
         </div>
       </div>
     </section>

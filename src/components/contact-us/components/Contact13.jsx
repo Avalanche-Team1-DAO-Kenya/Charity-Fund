@@ -4,6 +4,7 @@ import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
 import { RxChevronRight } from "react-icons/rx";
+import contact from "../../../assets/contactUs.jpg";
 
 export function Contact13() {
   return (
@@ -64,7 +65,7 @@ export function Contact13() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+              src={contact}
               alt="Relume placeholder image"
               className="size-full object-cover"
             />

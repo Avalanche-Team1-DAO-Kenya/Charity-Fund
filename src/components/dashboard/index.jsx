@@ -1,26 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header49 } from "./components/Header49";
-import { Layout1 } from "./components/Layout1";
-import { Layout22 } from "./components/Layout22";
-import { Layout239 } from "./components/Layout239";
-import { Layout84 } from "./components/Layout84";
-import { Layout4 } from "./components/Layout4";
-import { Layout27 } from "./components/Layout27";
-import { Cta25 } from "./components/Cta25";
-
+import { SidebarMenu } from "./components/SidebarMenu";
+import { LayoutProfile } from "./components/LayoutProfile";
+import { LayoutWallet } from "./components/LayoutWallet";
+import { LayoutRecent } from "./components/LayoutRecent";
+import { LayoutCauses } from "./components/LayoutCauses";
+import { LayoutNotifications } from "./components/LayoutNotifications";
+import { LayoutSettings } from "./components/LayoutSettings";
+//import { Footer } from "./components/Footer";
 
 export default function MainDashboard() {
-  return (
-    <div>
+  const [activePage, setActivePage] = useState("Profile");
 
-      <Header49 />
-      <Layout1 />
-      <Layout22 />
-      <Layout239 />
-      <Layout84 />
-      <Layout4 />
-      <Layout27 />
-      <Cta25 />
+  const renderContent = () => {
+    switch (activePage) {
+      case "Profile":
+        return <LayoutProfile />;
+      case "Wallet":
+        return <LayoutWallet />;
+      case "Recent":
+        return <LayoutRecent />;
+      case "Causes":
+        return <LayoutCauses />;
+      case "Notifications":
+        return <LayoutNotifications />;
+      case "Settings":
+        return <LayoutSettings />;
+      default:
+        return <LayoutProfile />;
+    }
+  };
+
+  return (
+    <div className="flex">
+      {/* Left Sidebar Menu */}
+      <SidebarMenu activePage={activePage} setActivePage={setActivePage} />
+
+      {/* Main Dashboard Content */}
+      <div className="flex-1 bg-gray-100 min-h-screen">
+        <Header49 />
+        <div className="p-8 max-w-7xl mx-auto">{renderContent()}</div>
+        
+      </div>
     </div>
   );
 }

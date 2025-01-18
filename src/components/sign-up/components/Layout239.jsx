@@ -2,6 +2,10 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { Link } from "react-router-dom";
+import blockchainWallet from "../../../assets/blockchainWallet.jpeg";
+import engagement from "../../../assets/engagement.jpeg";
+import community from "../../../assets/communityImpact.jpeg";
 import { RxChevronRight } from "react-icons/rx";
 
 export function Layout239() {
@@ -27,7 +31,7 @@ export function Layout239() {
             <div className="flex w-full flex-col items-center text-center">
               <div className="rb-6 mb-6 md:mb-8">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                  src={blockchainWallet}
                   alt="Relume placeholder image"
                 />
               </div>
@@ -41,7 +45,7 @@ export function Layout239() {
             <div className="flex w-full flex-col items-center text-center">
               <div className="rb-6 mb-6 md:mb-8">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                  src={engagement}
                   alt="Relume placeholder image"
                 />
               </div>
@@ -53,7 +57,7 @@ export function Layout239() {
             <div className="flex w-full flex-col items-center text-center">
               <div className="rb-6 mb-6 md:mb-8">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                  src={community}
                   alt="Relume placeholder image"
                 />
               </div>
@@ -64,10 +68,9 @@ export function Layout239() {
             </div>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-            <Button variant="secondary">Sign Up</Button>
-            <Button iconRight={<RxChevronRight />} variant="link" size="link">
+            <Link to="/about"><Button iconRight={<RxChevronRight />} variant="link" size="link">
               Learn More
-            </Button>
+            </Button></Link>
           </div>
         </div>
       </div>

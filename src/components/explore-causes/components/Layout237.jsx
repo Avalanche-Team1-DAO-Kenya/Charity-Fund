@@ -1,71 +1,80 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+import { Button } from "@relume_io/relume-ui";
 
 export function Layout237() {
+  const causes = [
+    {
+      title: "Support Flood Relief in Region B",
+      progress: "70%",
+      raised: "7,000 AVAX of 10,000 AVAX",
+      daysLeft: 5,
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+    {
+      title: "Build a School in Village A",
+      progress: "45%",
+      raised: "4,500 AVAX of 10,000 AVAX",
+      daysLeft: 10,
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+    {
+      title: "Reforestation in Region C",
+      progress: "90%",
+      raised: "9,000 AVAX of 10,000 AVAX",
+      daysLeft: 2,
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+    {
+      title: "Provide Clean Water to Village X",
+      progress: "60%",
+      raised: "6,000 AVAX of 10,000 AVAX",
+      daysLeft: 7,
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+    {
+      title: "Empower Women Entrepreneurs in Region Y",
+      progress: "80%",
+      raised: "8,000 AVAX of 10,000 AVAX",
+      daysLeft: 4,
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+    {
+      title: "Disaster Relief for Earthquake Victims in Region Z",
+      progress: "50%",
+      raised: "5,000 AVAX of 10,000 AVAX",
+      daysLeft: 8,
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+  ];
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="featured-causes" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="flex flex-col items-center">
-          <div className="rb-12 mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
-            <p className="mb-3 font-semibold md:mb-4">Causes</p>
-            <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Explore Our Impactful Community Initiatives
-            </h2>
-            <p className="md:text-md">
-              Discover the active causes that are making a difference in our
-              community. Your support can help bring these initiatives to life.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
-            <div className="flex w-full flex-col items-center text-center">
-              <div className="rb-5 mb-5 md:mb-6">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
-                  className="size-12"
-                />
+        <h2 className="text-5xl font-bold text-center md:text-7xl lg:text-8xl mb-12">
+          Featured Causes
+        </h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {causes.map((cause, index) => (
+            <div key={index} className="p-6 border rounded-lg">
+              <img
+                src={cause.image}
+                alt={cause.title}
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-3">{cause.title}</h3>
+              <div className="w-full bg-gray-300 rounded-full h-2.5 mb-3">
+                <div
+                  className="bg-blue-600 h-2.5 rounded-full"
+                  style={{ width: cause.progress }}
+                ></div>
               </div>
-              <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-                Current Active Causes You Can Support
-              </h3>
-              <p>Join us in making a positive impact today.</p>
+              <p className="text-md mb-2">{cause.raised}</p>
+              <p className="text-sm text-gray-500">Ends in {cause.daysLeft} days</p>
+              <Button className="mt-4 w-full">Donate Now</Button>
             </div>
-            <div className="flex w-full flex-col items-center text-center">
-              <div className="rb-5 mb-5 md:mb-6">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
-                  className="size-12"
-                />
-              </div>
-              <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-                Track Progress of Each Cause
-              </h3>
-              <p>See how your contributions are making a difference.</p>
-            </div>
-            <div className="flex w-full flex-col items-center text-center">
-              <div className="rb-5 mb-5 md:mb-6">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
-                  className="size-12"
-                />
-              </div>
-              <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-                Make a Donation to Your Chosen Cause
-              </h3>
-              <p>Every donation counts towards a brighter future.</p>
-            </div>
-          </div>
-          <div className="mt-10 flex items-center gap-4 md:mt-14 lg:mt-16">
-            <Button variant="secondary">Donate</Button>
-            <Button iconRight={<RxChevronRight />} variant="link" size="link">
-              Learn More
-            </Button>
-          </div>
+          ))}
         </div>
       </div>
     </section>

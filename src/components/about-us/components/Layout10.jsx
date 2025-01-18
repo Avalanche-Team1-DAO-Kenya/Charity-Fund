@@ -3,6 +3,7 @@
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
+import powerBlockchain from "../../../assets/blockchain.jpeg";
 
 export function Layout10() {
   return (
@@ -69,7 +70,7 @@ export function Layout10() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src={powerBlockchain}
               className="w-full object-cover"
               alt="Relume placeholder image"
             />

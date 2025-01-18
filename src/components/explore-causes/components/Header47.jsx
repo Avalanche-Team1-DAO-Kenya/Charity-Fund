@@ -5,26 +5,27 @@ import React from "react";
 
 export function Header47() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="donation-header" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="flex flex-col gap-5 md:flex-row md:gap-12 lg:gap-20">
           <div className="w-full max-w-lg">
-            <p className="mb-3 font-semibold md:mb-4">Explore</p>
+            <p className="mb-3 font-semibold md:mb-4">Explore Causes</p>
             <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
-              Discover Charitable Causes
+              Explore Causes & Make an Impact
             </h1>
           </div>
           <div className="w-full max-w-lg">
             <p className="md:text-md">
-              Join us in making a difference by exploring a variety of impactful
-              charitable causes. Your support can help transform lives and
-              communities in need.
+              Browse projects and initiatives needing your support. Your
+              contribution makes a real difference.
             </p>
-            <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-              <Button title="Learn More">Learn More</Button>
-              <Button title="Get Involved" variant="secondary">
-                Get Involved
-              </Button>
+            <div className="mt-6 flex items-center gap-4">
+              <input
+                type="text"
+                placeholder="Search causes by name, category, or keyword..."
+                className="w-full p-3 border border-gray-300 rounded-md"
+              />
+              <Button variant="secondary">🔍</Button>
             </div>
           </div>
         </div>

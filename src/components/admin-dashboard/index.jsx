@@ -9,7 +9,7 @@ import { Layout89 } from "./components/Layout89";
 import { Layout4_1 } from "./components/Layout4_1";
 
 
-export default function Dashboard() {
+export default function AdminDashboard() {
   return (
     <div>
       <Header46 />

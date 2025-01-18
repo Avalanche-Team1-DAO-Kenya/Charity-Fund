@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/CharityLogo.png";
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,7 +50,7 @@ export function Navbar() {
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
           <Link to="/">
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
+              src={Logo}
               alt="Logo image"
             />
           </Link>
@@ -114,16 +115,16 @@ export function Navbar() {
             Home
           </Link>
           <Link
-            to="/about"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            About Us
-          </Link>
-          <Link
             to="/donate"
             className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
           >
             Donate Now
+          </Link>
+          <Link
+            to="/explore-causes"
+            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+          >
+            Explore Causes
           </Link>
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
@@ -133,7 +134,7 @@ export function Navbar() {
               className="flex w-full items-center justify-between gap-2 py-3 text-left text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
               onClick={useActive.openOnMobileDropdownMenu}
             >
-              <span>Explore Causes</span>
+              <span>More</span>
               <motion.span
                 variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
                 animate={useActive.animateDropdownMenuIcon}
@@ -165,10 +166,10 @@ export function Navbar() {
                 className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
               >
                 <Link
-                  to="/"
+                  to="/about"
                   className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
                 >
-                  Our Impact
+                  About Us
                 </Link>
                 <Link
                    to="/"
@@ -182,66 +183,6 @@ export function Navbar() {
                 >
                   Contact Us
                 </Link>
-              </motion.nav>
-            </AnimatePresence>
-          </div>
-          <div
-            onMouseEnter={useActive.openOnDesktopDropdownMenu}
-            onMouseLeave={useActive.closeOnDesktopDropdownMenu}
-          >
-            <button
-              className="flex w-full items-center justify-between gap-2 py-3 text-left text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
-              onClick={useActive.openOnMobileDropdownMenu}
-            >
-              <span>Link Four</span>
-              <motion.span
-                variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
-                animate={useActive.animateDropdownMenuIcon}
-                transition={{ duration: 0.3 }}
-              >
-                <RxChevronDown />
-              </motion.span>
-            </button>
-            <AnimatePresence>
-              <motion.nav
-                variants={{
-                  open: {
-                    visibility: "visible",
-                    opacity: "var(--opacity-open, 100%)",
-                    display: "block",
-                    y: 0,
-                  },
-                  close: {
-                    visibility: "hidden",
-                    opacity: "var(--opacity-close, 0)",
-                    display: "none",
-                    y: "var(--y-close, 0%)",
-                  },
-                }}
-                animate={useActive.animateDropdownMenu}
-                initial="close"
-                exit="close"
-                transition={{ duration: 0.2 }}
-                className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
-              >
-                <a
-                   to="/"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Link Five
-                </a>
-                <a
-                   to="/"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Link Six
-                </a>
-                <a
-                   to="/"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Link Seven
-                </a>
               </motion.nav>
             </AnimatePresence>
           </div>

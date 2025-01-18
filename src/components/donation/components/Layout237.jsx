@@ -1,73 +1,127 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
-import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+import React, { useState } from "react";
 
-export function Layout237() {
+export function Layout237({ selectedCause }) {
+  const [amount, setAmount] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const [personalMessage, setPersonalMessage] = useState("");
+  const [isAnonymous, setIsAnonymous] = useState(false);
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="donation-content" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="flex flex-col items-center">
-          <div className="rb-12 mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
-            <p className="mb-3 font-semibold md:mb-4">Donate</p>
-            <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Support Causes That Matter Most
-            </h2>
-            <p className="md:text-md">
-              Explore our diverse range of causes and make a difference today.
-              Your contributions empower communities and drive impactful change.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
-            <div className="flex w-full flex-col items-center text-center">
-              <div className="rb-5 mb-5 md:mb-6">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
-                  className="size-12"
-                />
+        {/* Cause Name */}
+        <div className="mb-10 text-center">
+          <h2 className="mb-5 text-5xl font-bold md:text-7xl lg:text-8xl">
+            Support {selectedCause || "a Cause"}
+          </h2>
+        </div>
+
+        {/* Donation Form Section */}
+        <div className="mb-10">
+          <h3 className="mb-4 text-3xl font-semibold">Enter Your Donation Details</h3>
+          <form className="space-y-6">
+            {/* Amount Section */}
+            <div>
+              <label className="block mb-2 font-medium">Amount</label>
+              <input
+                type="text"
+                placeholder="Enter amount (e.g., 10 AVAX)"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="w-full p-3 border rounded-md"
+              />
+              <div className="mt-4 flex gap-4">
+                {["5 AVAX", "10 AVAX", "20 AVAX"].map((preset) => (
+                  <Button
+                    key={preset}
+                    variant="secondary"
+                    onClick={() => setAmount(preset.replace(" AVAX", ""))}
+                  >
+                    {preset}
+                  </Button>
+                ))}
               </div>
-              <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-                Current Causes Available for Donation
-              </h3>
-              <p>Every donation counts and helps transform lives.</p>
             </div>
-            <div className="flex w-full flex-col items-center text-center">
-              <div className="rb-5 mb-5 md:mb-6">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
-                  className="size-12"
-                />
+
+            {/* Payment Method Section */}
+            <div>
+              <label className="block mb-2 font-medium">Payment Method</label>
+              <div className="space-y-2">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="wallet"
+                    onChange={() => setPaymentMethod("wallet")}
+                  />
+                  Pay with Connected Wallet (e.g., MetaMask, Core Wallet)
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="walletconnect"
+                    onChange={() => setPaymentMethod("walletconnect")}
+                  />
+                  Pay with WalletConnect
+                </label>
               </div>
-              <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-                Join Us in Making a Difference
-              </h3>
-              <p>Together, we can create a brighter future.</p>
             </div>
-            <div className="flex w-full flex-col items-center text-center">
-              <div className="rb-5 mb-5 md:mb-6">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
-                  className="size-12"
+
+            {/* Personal Message */}
+            <div>
+              <label className="block mb-2 font-medium">Personal Message (Optional)</label>
+              <textarea
+                placeholder="Add a message for the cause organizer"
+                value={personalMessage}
+                onChange={(e) => setPersonalMessage(e.target.value)}
+                className="w-full p-3 border rounded-md"
+              />
+            </div>
+
+            {/* Anonymity */}
+            <div>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={isAnonymous}
+                  onChange={() => setIsAnonymous(!isAnonymous)}
                 />
-              </div>
-              <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-                How Your Donation Helps
-              </h3>
-              <p>
-                Your support directly funds essential projects and initiatives.
-              </p>
+                Donate anonymously
+              </label>
             </div>
-          </div>
-          <div className="mt-10 flex items-center gap-4 md:mt-14 lg:mt-16">
-            <Button variant="secondary">Donate</Button>
-            <Button iconRight={<RxChevronRight />} variant="link" size="link">
-              Learn More
-            </Button>
-          </div>
+          </form>
+        </div>
+
+        {/* Donation Summary Section */}
+        <div className="mb-10">
+          <h3 className="mb-4 text-3xl font-semibold">Donation Summary</h3>
+          <p>Cause Name: {selectedCause || "Not Selected"}</p>
+          <p>Amount to Donate: {amount || "0"} AVAX</p>
+          <p>Blockchain Fees: Estimated fees: ~0.01 AVAX</p>
+          <p>Total: {(parseFloat(amount || "0") + 0.01).toFixed(2)} AVAX</p>
+        </div>
+
+        {/* Security Reminder */}
+        <div className="mb-10">
+          <h3 className="mb-4 text-3xl font-semibold">Your Security is Our Priority</h3>
+          <p>
+            All transactions are secured and recorded on the Avalanche blockchain for full transparency.
+            Always verify the wallet address before proceeding.
+          </p>
+        </div>
+
+        {/* Call to Action Buttons */}
+        <div className="flex gap-4">
+          <Button variant="primary" onClick={() => console.log("Donation confirmed")}>
+            Donate Now
+          </Button>
+          <Button variant="secondary" onClick={() => console.log("Donation canceled")}>
+            Cancel
+          </Button>
         </div>
       </div>
     </section>
