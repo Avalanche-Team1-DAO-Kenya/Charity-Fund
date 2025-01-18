@@ -50,6 +50,7 @@ export function Navbar() {
     "admin":"AdminDash",
     "user":"userAdmin"
   }
+  let navLink=allRoles[role]
   return (
     <section
       id="relume"
@@ -135,7 +136,7 @@ export function Navbar() {
           >
             Donate Now
           </Link>
-          <Link to="/adminDash">adminDash</Link>
+         
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
@@ -256,27 +257,34 @@ export function Navbar() {
               </motion.nav>
             </AnimatePresence>
           </div>
-          <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <Link 
-              to="/sign-Up"
-            >
-              <Button
-                title="Sign Up"
-                variant="secondary"
-                size="sm"
-                className="w-full"
-              >
-                Sign Up
-              </Button>
-            </Link>
- 
-            <Link to="/sign-In">
-              <Button title="Log In" size="sm" className="w-full">
-                Log In
-              </Button>
-            </Link>
+          <Link to="/adminDash">adminDash</Link>
+         {!navLink && (
+           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
+           <Link 
+             to="/sign-Up"
+           >
+             <Button
+               title="Sign Up"
+               variant="secondary"
+               size="sm"
+               className="w-full"
+             >
+               Sign Up
+             </Button>
+           </Link>
 
-          </div>
+           <Link to="/sign-In">
+             <Button title="Log In" size="sm" className="w-full">
+               Log In
+             </Button>
+           </Link>
+
+         </div>
+         )}
+         {navLink && (<div>
+           {navLink==="admin"  && <Link to="adminDash">AdminDash</Link>}
+           {navLink==="user" && <Link to="user"></Link>}
+         </div>)}
         </motion.div>
       </div>
     </section>
