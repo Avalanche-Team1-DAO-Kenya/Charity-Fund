@@ -1,13 +1,17 @@
 "use client";
-
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 import { Link } from "react-router-dom";
+
+import { AuthContext } from './../AuthContext/AuthContext';
+import { jwtDecode } from "jwt-decode";
+
 import Logo from "../../assets/CharityLogo.png";
 
-const useRelume = () => {
+
+const useRelume = () => {  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
@@ -41,6 +45,16 @@ const useRelume = () => {
 
 export function Navbar() {
   const useActive = useRelume();
+  // const {token}=useContext(AuthContext)
+  // const [userRole,setUserRole]=useState("")
+  // const decodedToken=jwtDecode(token)
+  // const role=decodedToken?.sub?.role
+  // setUserRole(role)
+  // const allRoles={
+  //   "admin":"AdminDash",
+  //   "user":"userAdmin"
+  // }
+
   return (
     <section
       id="relume"
@@ -126,6 +140,7 @@ export function Navbar() {
           >
             Explore Causes
           </Link>
+         
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
@@ -186,6 +201,83 @@ export function Navbar() {
               </motion.nav>
             </AnimatePresence>
           </div>
+// Esther
+          <div
+            onMouseEnter={useActive.openOnDesktopDropdownMenu}
+            onMouseLeave={useActive.closeOnDesktopDropdownMenu}
+          >
+            <button
+              className="flex w-full items-center justify-between gap-2 py-3 text-left text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
+              onClick={useActive.openOnMobileDropdownMenu}
+            >
+              <span>Link Four</span>
+              <motion.span
+                variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
+                animate={useActive.animateDropdownMenuIcon}
+                transition={{ duration: 0.3 }}
+              >
+                <RxChevronDown />
+              </motion.span>
+            </button>
+            <AnimatePresence>
+              <motion.nav
+                variants={{
+                  open: {
+                    visibility: "visible",
+                    opacity: "var(--opacity-open, 100%)",
+                    display: "block",
+                    y: 0,
+                  },
+                  close: {
+                    visibility: "hidden",
+                    opacity: "var(--opacity-close, 0)",
+                    display: "none",
+                    y: "var(--y-close, 0%)",
+                  },
+                }}
+                animate={useActive.animateDropdownMenu}
+                initial="close"
+                exit="close"
+                transition={{ duration: 0.2 }}
+                className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
+              >
+                <a
+                   to="/"
+                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
+                >
+                  Link Five
+                </a>
+                <a
+                   to="/"
+                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
+                >
+                  Link Six
+                </a>
+                <a
+                   to="/"
+                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
+                >
+                  Link Seven
+                </a>
+              </motion.nav>
+            </AnimatePresence>
+          </div>
+          <Link to="/adminDash">adminDash</Link>
+         {/* {!navLink && ( */}
+           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
+           <Link 
+             to="/sign-Up"
+           >
+             <Button
+               title="Sign Up"
+               variant="secondary"
+               size="sm"
+               className="w-full"
+             >
+               Sign Up
+             </Button>
+           </Link>
+//=======
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
             <Link 
               to="/sign-Up"
@@ -205,8 +297,18 @@ export function Navbar() {
                 Log In
               </Button>
             </Link>
+//main
 
-          </div>
+           <Link to="/sign-In">
+             <Button title="Log In" size="sm" className="w-full">
+               Log In
+             </Button>4
+           </Link>          
+         </div>    
+           
+           {/* {navLink==="admin"  && <Link to="adminDash">AdminDash</Link>}
+           {navLink==="user" && <Link to="user">userDash</Link>} */}
+         
         </motion.div>
       </div>
     </section>
