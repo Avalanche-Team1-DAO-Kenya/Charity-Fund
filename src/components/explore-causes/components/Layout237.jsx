@@ -2,14 +2,20 @@
 
 import React from "react";
 import { Button } from "@relume_io/relume-ui";
+import { useNavigate } from "react-router-dom";
 
 export function Layout237() {
+  const navigate = useNavigate();
+
   const causes = [
     {
       title: "Support Flood Relief in Region B",
       progress: "70%",
       raised: "7,000 AVAX of 10,000 AVAX",
       daysLeft: 5,
+      description:
+        "Help families affected by devastating floods in Region B rebuild their lives with essential supplies and support.",
+      link: "/cause-details/support-flood-relief-region-b",
       image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     },
     {
@@ -17,34 +23,49 @@ export function Layout237() {
       progress: "45%",
       raised: "4,500 AVAX of 10,000 AVAX",
       daysLeft: 10,
+      description:
+        "Join the mission to provide quality education by helping build a school in Village A.",
+      link: "/cause-details/build-school-village-a",
       image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     },
     {
-      title: "Reforestation in Region C",
-      progress: "90%",
-      raised: "9,000 AVAX of 10,000 AVAX",
-      daysLeft: 2,
-      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-    },
-    {
-      title: "Provide Clean Water to Village X",
+      title: "Plant Trees in Urban Areas",
       progress: "60%",
       raised: "6,000 AVAX of 10,000 AVAX",
       daysLeft: 7,
+      description:
+        "Contribute to reducing carbon footprints by funding urban tree-planting initiatives.",
+      link: "/cause-details/plant-trees-urban-areas",
       image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     },
     {
-      title: "Empower Women Entrepreneurs in Region Y",
+      title: "Healthcare for Remote Communities",
+      progress: "30%",
+      raised: "3,000 AVAX of 10,000 AVAX",
+      daysLeft: 12,
+      description:
+        "Support the provision of medical supplies and healthcare services in underserved communities.",
+      link: "/cause-details/healthcare-remote-communities",
+      image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    },
+    {
+      title: "Emergency Aid for Earthquake Victims",
       progress: "80%",
       raised: "8,000 AVAX of 10,000 AVAX",
-      daysLeft: 4,
+      daysLeft: 3,
+      description:
+        "Provide essential relief materials to families affected by recent earthquakes.",
+      link: "/cause-details/emergency-aid-earthquake-victims",
       image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     },
     {
-      title: "Disaster Relief for Earthquake Victims in Region Z",
+      title: "Youth Empowerment Programs",
       progress: "50%",
       raised: "5,000 AVAX of 10,000 AVAX",
-      daysLeft: 8,
+      daysLeft: 15,
+      description:
+        "Enable skill development and educational opportunities for underprivileged youth.",
+      link: "/cause-details/youth-empowerment-programs",
       image: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     },
   ];
@@ -64,6 +85,7 @@ export function Layout237() {
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
               <h3 className="text-xl font-bold mb-3">{cause.title}</h3>
+              <p className="text-sm text-gray-700 mb-3">{cause.description}</p>
               <div className="w-full bg-gray-300 rounded-full h-2.5 mb-3">
                 <div
                   className="bg-blue-600 h-2.5 rounded-full"
@@ -72,7 +94,14 @@ export function Layout237() {
               </div>
               <p className="text-md mb-2">{cause.raised}</p>
               <p className="text-sm text-gray-500">Ends in {cause.daysLeft} days</p>
-              <Button className="mt-4 w-full">Donate Now</Button>
+              <div className="flex gap-4 mt-4">
+                <Button className="w-full" onClick={() => navigate(cause.link)}>
+                  Read More
+                </Button>
+                <Button className="w-full" variant="secondary">
+                  Donate Now
+                </Button>
+              </div>
             </div>
           ))}
         </div>
