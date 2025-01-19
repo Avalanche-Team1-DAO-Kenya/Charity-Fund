@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
+import { Link } from "react-router-dom";
 import React from "react";
 
 export function Faq9() {
@@ -66,9 +67,9 @@ export function Faq9() {
           </h4>
           <p className="md:text-md">We're here to help you!</p>
           <div className="mt-6 md:mt-8">
-            <Button title="Contact" variant="secondary">
+            <Link to="/contact"><Button title="Contact" variant="secondary">
               Contact
-            </Button>
+            </Button></Link>
           </div>
         </div>
       </div>

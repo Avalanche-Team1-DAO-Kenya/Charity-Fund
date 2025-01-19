@@ -9,8 +9,11 @@ import { Layout89 } from "./components/Layout89";
 import { Layout4_1 } from "./components/Layout4_1";
 import AdminHome from "./components/LandinPage";
 
+
 export default function Dashboard() {
-  
+
+//export default function AdminDashboard() {
+
   return (
     <div className="flex flex-col space-x-4">
       <AdminHome/>     

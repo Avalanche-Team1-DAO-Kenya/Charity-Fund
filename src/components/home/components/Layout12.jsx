@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+import blockchain from "../../../assets/blockchain.jpeg";
+
+
 
 export function Layout12() {
   return (
@@ -55,7 +58,7 @@ export function Layout12() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src={blockchain}
               className="w-full object-cover"
               alt="Relume placeholder image"
             />

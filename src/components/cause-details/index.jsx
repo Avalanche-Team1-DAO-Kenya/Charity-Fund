@@ -10,7 +10,7 @@ import { Gallery10 } from "./components/Gallery10";
 import { Faq1 } from "./components/Faq1";
 
 
-export default function CourseDetails() {
+export default function CauseDetails() {
   return (
     <div>
     

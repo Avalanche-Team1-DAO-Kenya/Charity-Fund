@@ -2,6 +2,7 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import community from "../../../assets/communityImpact.jpeg";
 
 export function Layout117() {
   return (
@@ -40,7 +41,7 @@ export function Layout117() {
           </div>
         </div>
         <img
-          src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+          src={community}
           className="w-full object-cover"
           alt="Relume placeholder image"
         />

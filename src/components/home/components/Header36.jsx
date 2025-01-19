@@ -2,6 +2,7 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { Link } from "react-router-dom";
 import donate from "../../../assets/DonateHome.jpg";
 
 export function Header36() {
@@ -21,10 +22,10 @@ export function Header36() {
           traceable and impactful.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-          <Button title="Donate">Donate</Button>
-          <Button title="Learn More" variant="secondary">
+        <Link to="/donate"><Button title="Donate">Donate</Button></Link>
+        <Link to="/about"><Button title="Learn More" variant="secondary">
             Learn More
-          </Button>
+          </Button></Link>
         </div>
       </div>
       <div>

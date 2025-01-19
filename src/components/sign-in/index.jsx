@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Header44 } from "./components/Header44";
+
 import { Cta46 } from "./components/Cta46";
 import { Cta41 } from "./components/Cta41";
-import { Cta25 } from "./components/Cta25";
+import { Header44 } from "./components/Header44";
 
 
 export default function SignIn() {
@@ -11,8 +11,7 @@ export default function SignIn() {
     <div>
       <Header44 />
       <Cta46 />
-      <Cta41 />
-      <Cta25 />
+      <Cta41 /> 
     </div>
   );
 }

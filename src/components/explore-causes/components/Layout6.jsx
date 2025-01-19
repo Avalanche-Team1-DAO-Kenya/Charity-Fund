@@ -4,46 +4,66 @@ import React from "react";
 
 export function Layout6() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="filter-sort" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
+        <div className="mb-12">
+          <h2 className="text-5xl font-bold text-center md:text-7xl lg:text-8xl">
+            Filter & Sort Causes
+          </h2>
+          <p className="text-center text-md mt-4">
+            Narrow down your search to find the most impactful causes.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
           <div>
-            <h1 className="rb-5 mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-              Discover and Support Causes That Matter to You
-            </h1>
-            <p className="mb-6 md:mb-8 md:text-md">
-              Easily navigate through a diverse range of charitable initiatives.
-              Our platform allows you to filter and search for causes based on
-              your interests and priorities.
-            </p>
-            <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
-              <div>
-                <h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
-                  Find Causes
-                </h6>
-                <p>
-                  Search by category, location, or urgency to discover impactful
-                  initiatives.
-                </p>
-              </div>
-              <div>
-                <h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
-                  Get Involved
-                </h6>
-                <p>
-                  Join the mission by supporting causes that resonate with your
-                  values.
-                </p>
-              </div>
-            </div>
+            <h3 className="font-bold mb-3">Categories</h3>
+            <ul className="space-y-2">
+              {[
+                "Education",
+                "Disaster Relief",
+                "Healthcare",
+                "Community Development",
+                "Environment",
+              ].map((category) => (
+                <li key={category}>
+                  <input type="checkbox" id={category} />{" "}
+                  <label htmlFor={category}>{category}</label>
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
-            <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-              className="w-full object-cover"
-              alt="Relume placeholder image"
-            />
+            <h3 className="font-bold mb-3">Funding Status</h3>
+            <ul className="space-y-2">
+              {["Fully Funded", "Partially Funded", "Needs Urgent Attention"].map(
+                (status) => (
+                  <li key={status}>
+                    <input type="checkbox" id={status} />{" "}
+                    <label htmlFor={status}>{status}</label>
+                  </li>
+                )
+              )}
+            </ul>
           </div>
+          <div>
+            <h3 className="font-bold mb-3">Location</h3>
+            <select className="w-full p-3 border border-gray-300 rounded-md">
+              <option>Select a region</option>
+              <option>North America</option>
+              <option>Europe</option>
+              <option>Asia</option>
+              <option>Africa</option>
+            </select>
+          </div>
+        </div>
+        <div className="mt-10 text-center">
+          <h3 className="font-bold mb-3">Sort By</h3>
+          <select className="w-full md:w-auto p-3 border border-gray-300 rounded-md">
+            <option>Popularity</option>
+            <option>Newest First</option>
+            <option>Most Funded</option>
+            <option>Least Funded</option>
+          </select>
         </div>
       </div>
     </section>

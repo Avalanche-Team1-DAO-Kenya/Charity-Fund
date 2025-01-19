@@ -14,7 +14,7 @@ export function Cta41() {
                 Join Our Community Today
               </h2>
               <p className="text-text-alternative md:text-md">
-                Don't have an account? Sign up now to start making a difference
+                Do not have an account? Sign up now to start making a difference
                 with your donations!
               </p>
             </div>

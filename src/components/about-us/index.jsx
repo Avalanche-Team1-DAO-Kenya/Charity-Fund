@@ -4,7 +4,7 @@ import { Layout22 } from "./components/Layout22";
 import { Layout10 } from "./components/Layout10";
 import { Team5 } from "./components/Team5";
 import { Logo1 } from "./components/Logo1";
-import { Cta1 } from "./components/Cta1";
+//import { Cta1 } from "./components/Cta1";
 
 
 export default function About() {
@@ -15,7 +15,6 @@ export default function About() {
       <Layout10 />
       <Team5 />
       <Logo1 />
-      <Cta1 />
     </div>
   );
 }
