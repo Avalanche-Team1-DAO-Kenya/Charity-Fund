@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-
+import Charity2 from "../Assets/Charity2.jpg"
 export function Layout3() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className=" md:py-24 lg:py-28 space-x-4 space-y-4">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
@@ -12,16 +12,16 @@ export function Layout3() {
               Empower Your Organization with Comprehensive User Management Tools
             </h1>
             <p className="md:text-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique. Duis cursus,
-              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-              libero vitae erat.
+              Ready to help your organisations save costs and be able to track transactions
+              with easing the burden of tracking trnsactions that require a lot of costs,Charity Fund 
+              is here to save yor day .With enhanced tracking tools and up to speed data,it reduces space and time
+              require with other applications enabling organisations to give back to society
             </p>
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-              className="w-full object-cover"
+              src={Charity2}
+              className="w-full object-cover rounded-lg"
               alt="Relume placeholder image"
             />
           </div>

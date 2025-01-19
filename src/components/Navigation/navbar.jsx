@@ -41,16 +41,16 @@ const useRelume = () => {
 
 export function Navbar() {
   const useActive = useRelume();
-  const {token}=useContext(AuthContext)
-  const [userRole,setUserRole]=useState("")
-  const decodedToken=jwtDecode(token)
-  const role=decodedToken?.sub?.role
-  setUserRole(role)
-  const allRoles={
-    "admin":"AdminDash",
-    "user":"userAdmin"
-  }
-  let navLink=allRoles[role]
+  // const {token}=useContext(AuthContext)
+  // const [userRole,setUserRole]=useState("")
+  // const decodedToken=jwtDecode(token)
+  // const role=decodedToken?.sub?.role
+  // setUserRole(role)
+  // const allRoles={
+  //   "admin":"AdminDash",
+  //   "user":"userAdmin"
+  // }
+
   return (
     <section
       id="relume"
@@ -258,7 +258,7 @@ export function Navbar() {
             </AnimatePresence>
           </div>
           <Link to="/adminDash">adminDash</Link>
-         {!navLink && (
+         {/* {!navLink && ( */}
            <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
            <Link 
              to="/sign-Up"
@@ -276,15 +276,13 @@ export function Navbar() {
            <Link to="/sign-In">
              <Button title="Log In" size="sm" className="w-full">
                Log In
-             </Button>
-           </Link>
-
-         </div>
-         )}
-         {navLink && (<div>
-           {navLink==="admin"  && <Link to="adminDash">AdminDash</Link>}
-           {navLink==="user" && <Link to="user"></Link>}
-         </div>)}
+             </Button>4
+           </Link>          
+         </div>    
+           
+           {/* {navLink==="admin"  && <Link to="adminDash">AdminDash</Link>}
+           {navLink==="user" && <Link to="user">userDash</Link>} */}
+         
         </motion.div>
       </div>
     </section>

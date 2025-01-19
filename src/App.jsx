@@ -15,7 +15,8 @@ import Layout from './components/Layout';
 import About from './components/about-us';
 import AnimatedOutlet from './components/animatedOutlet';
 import AdminMainDashboard from './components/admin-dashboard/components/AdminDashboard';
-
+import NewWalletConnect from './components/admin-dashboard/components/Connector';
+// import MoralisTransactions from './components/admin-dashboard/Transactions/app';
 function App() {
 
 
@@ -23,7 +24,7 @@ function App() {
     <>
       <Router>
         <AnimatedOutlet />
-
+        {/* <Navbar/> */}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -35,7 +36,9 @@ function App() {
             <Route path="sign-Up" element={<SignUp />} />
             <Route exact path="adminDash"  element={<AdminMainDashboard/>}>
               <Route exact path="causes" element={<CourseDetails/>}/>
-              <Route excat path="" element={<Dashboard/>} />
+              <Route exact path="" element={<Dashboard/>} />
+              <Route exact path='connect' element={<NewWalletConnect/>}/>
+              {/* <Route exact path="transactions" element={<MoralisTransactions/>}/> */}
             </Route>
           </Route>
         </Routes>

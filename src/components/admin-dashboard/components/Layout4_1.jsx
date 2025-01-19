@@ -1,12 +1,12 @@
 "use client";
-
+import Charity4 from "../Assets/Charity4.jpg"
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 
 export function Layout4_1() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
@@ -55,8 +55,8 @@ export function Layout4_1() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-              className="w-full object-cover"
+              src={Charity4}
+              className="w-full object-cover rounded-lg"
               alt="Relume placeholder image"
             />
           </div>

@@ -12,11 +12,8 @@ import AdminHome from "./components/LandinPage";
 export default function Dashboard() {
   
   return (
-    <div>
-      <AdminHome/>      
-      <Header46 />
-      <Layout4 />
-      <Layout192 />
+    <div className="flex flex-col space-x-4">
+      <AdminHome/>     
       <Layout3 />
       <Layout12 />
       <Layout89 />
