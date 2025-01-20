@@ -1,6 +1,6 @@
 import React from "react";
 import  CleverYougDoctor from "./Assets/CleverYougDoctor.jpg" 
-import codingBlockChain from "./Assets/codingBlockChain.jpg"
+import codingBlockChain from "./Assets/CodingBlockchain.jpg" 
 import LadyUsingBlockchain from "./Assets/LadyUsingBlockchain.jpg"
 import ManUsingBlockchain from "./Assets/ManUsingBlockchain.jpg"
 
