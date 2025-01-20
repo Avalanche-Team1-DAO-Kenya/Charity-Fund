@@ -5,8 +5,8 @@ import React, { useContext, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
-import { AuthContext } from './../AuthContext/AuthContext';
-import { jwtDecode } from "jwt-decode";
+//import { AuthContext } from './../AuthContext/AuthContext';
+//import { jwtDecode } from "jwt-decode";
 
 import Logo from "../../assets/CharityLogo.png";
 
@@ -201,7 +201,7 @@ export function Navbar() {
               </motion.nav>
             </AnimatePresence>
           </div>
-// Esther
+
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
@@ -264,20 +264,7 @@ export function Navbar() {
           </div>
           <Link to="/adminDash">adminDash</Link>
          {/* {!navLink && ( */}
-           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-           <Link 
-             to="/sign-Up"
-           >
-             <Button
-               title="Sign Up"
-               variant="secondary"
-               size="sm"
-               className="w-full"
-             >
-               Sign Up
-             </Button>
-           </Link>
-//=======
+
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
             <Link 
               to="/sign-Up"
@@ -292,17 +279,10 @@ export function Navbar() {
               </Button>
             </Link>
  
-            <Link to="/sign-In">
-              <Button title="Log In" size="sm" className="w-full">
-                Log In
-              </Button>
-            </Link>
-//main
-
            <Link to="/sign-In">
              <Button title="Log In" size="sm" className="w-full">
                Log In
-             </Button>4
+             </Button>
            </Link>          
          </div>    
            
